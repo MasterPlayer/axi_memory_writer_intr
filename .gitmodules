@@ -1,3 +1,0 @@
-[submodule "submodules/mpf_fifo_cmd_sync"]
-	path = submodules/mpf_fifo_cmd_sync
-	url = https://github.com/MasterPlayer/mpf_fifo_cmd_sync
