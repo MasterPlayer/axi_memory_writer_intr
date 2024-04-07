@@ -1,4 +1,6 @@
-`timescale 1 ns / 1 ps
+`ifndef __MP_AXI_MEMORY_WRITER_INTR_DEFINED__
+`define __MP_AXI_MEMORY_WRITER_INTR_DEFINED__
+
 
 module axi_memory_writer_intr #(
     parameter integer        FREQ_HZ                     = 250000000   ,
@@ -723,3 +725,4 @@ module axi_memory_writer_intr #(
 
 
 endmodule
+`endif //__MP_AXI_MEMORY_WRITER_INTR_DEFINED__

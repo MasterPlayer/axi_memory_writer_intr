@@ -1,6 +1,5 @@
-`timescale 1ns / 1ps
-
-
+`ifndef __MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__
+`define __MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__
 
 module axi_memory_writer_intr_functional #(
     parameter integer DATA_WIDTH  = 32,
@@ -1082,3 +1081,5 @@ module axi_memory_writer_intr_functional #(
     end 
 
 endmodule
+
+`endif //__MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__
