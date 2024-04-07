@@ -2,7 +2,7 @@
 `define __MP_AXI_MEMORY_WRITER_INTR_DEFINED__
 
 
-module axi_memory_writer_intr #(
+module mp_axi_memory_writer_intr #(
     parameter integer        FREQ_HZ                     = 250000000   ,
     parameter integer        N_BYTES                     = 2           ,
     parameter integer        ADDR_WIDTH                  = 32          ,
@@ -587,12 +587,12 @@ module axi_memory_writer_intr #(
     end 
 
 
-    axi_memory_writer_intr_functional #(
+    mp_axi_memory_writer_intr_functional #(
         .DATA_WIDTH (N_BYTES*8  ),
         .ADDR_WIDTH (ADDR_WIDTH ),
         .BURST_LIMIT(BURST_LIMIT),
         .SUSPENDABLE(SUSPENDABLE)
-    ) axi_memory_writer_intr_functional_inst (
+    ) mp_axi_memory_writer_intr_functional_inst (
         .CLK              (aclk             ),
         .RESET            (reset_func       ),
         .MEM_BASEADDR     (mem_startaddr    ),
@@ -634,11 +634,11 @@ module axi_memory_writer_intr #(
     );
 
 
-    fifo_cmd_sync_xpm #(
+    mp_xpm_fifo_cmd_sync #(
         .DATA_WIDTH(CMD_FIFO_WIDTH  ),
         .MEMTYPE   (CMD_FIFO_MEMTYPE),
         .DEPTH     (CMD_FIFO_DEPTH  )
-    ) fifo_cmd_sync_xpm_inst (
+    ) mp_xpm_fifo_cmd_sync_inst (
         .CLK  (aclk                                                                ),
         .RESET(reset_func                                                          ),
         .DIN  ({current_address[ADDR_WIDTH-1:0], transmitted_bytes[31:0]}          ),
@@ -678,7 +678,9 @@ module axi_memory_writer_intr #(
         end 
     end 
 
-    irq_generator irq_generator_inst (
+    mp_irq_generator mp_irq_generator_inst #(
+        .DEFAULT_DURATION (DEFAULT_USER_EVENT_DURATION)
+    )(
         .CLK           (aclk               ),
         .RESET         (reset_func         ),
         .RETRY         (retry              ),
@@ -687,10 +689,10 @@ module axi_memory_writer_intr #(
         .DURATION      (user_event_duration)
     );
 
-    irq_retryer #(
+    mp_irq_retryer #(
         .RETRY_COUNTER_LIMIT(RETRY_COUNTER_LIMIT),
         .CMD_FIFO_DEPTH     (CMD_FIFO_DEPTH     )
-    ) irq_retryer_inst (
+    ) mp_irq_retryer_inst (
         .CLK           (aclk                   ),
         .RESET         (reset_func             ),
         .USER_EVENT_IN (fifo_wren              ),
@@ -724,5 +726,5 @@ module axi_memory_writer_intr #(
     end 
 
 
-endmodule
+endmodule : mp_axi_memory_writer_intr
 `endif //__MP_AXI_MEMORY_WRITER_INTR_DEFINED__

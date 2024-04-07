@@ -1080,6 +1080,6 @@ module axi_memory_writer_intr_functional #(
         end 
     end 
 
-endmodule
+endmodule : axi_memory_writer_intr_functional
 
 `endif //__MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__
