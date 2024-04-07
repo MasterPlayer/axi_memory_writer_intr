@@ -4,3 +4,9 @@
 [submodule "submodules/mpf_xpm_fifo_in_sync_counted"]
 	path = submodules/mpf_xpm_fifo_in_sync_counted
 	url = https://github.com/MasterPlayer/mpf_xpm_fifo_in_sync_counted.git
+[submodule "submodules/mp_irq_retryer"]
+	path = submodules/mp_irq_retryer
+	url = https://github.com/MasterPlayer/mp_irq_retryer.git
+[submodule "submodules/mp_irq_generator"]
+	path = submodules/mp_irq_generator
+	url = https://github.com/MasterPlayer/mp_irq_generator.git
