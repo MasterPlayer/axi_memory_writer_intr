@@ -1,7 +1,7 @@
 `ifndef __MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__
 `define __MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__
 
-module axi_memory_writer_intr_functional #(
+module mp_axi_memory_writer_intr_functional #(
     parameter integer DATA_WIDTH  = 32,
     parameter integer ADDR_WIDTH  = 32,
     parameter integer BURST_LIMIT = 16,
@@ -569,11 +569,11 @@ module axi_memory_writer_intr_functional #(
 
 
 
-    fifo_in_sync_counted_xpm #(
+    mpf_xpm_fifo_in_sync_counted #(
         .DATA_WIDTH(DATA_WIDTH),
         .MEMTYPE   ("block"   ),
         .DEPTH     (FIFO_DEPTH)
-    ) fifo_in_sync_counted_xpm_inst (
+    ) mpf_xpm_fifo_in_sync_counted_inst (
         .CLK          (CLK                          ),
         .RESET        (fifo_reset                   ),
         .S_AXIS_TDATA (S_AXIS_TDATA                 ),
@@ -1080,6 +1080,6 @@ module axi_memory_writer_intr_functional #(
         end 
     end 
 
-endmodule : axi_memory_writer_intr_functional
+endmodule : mp_axi_memory_writer_intr_functional
 
 `endif //__MP_AXI_MEMORY_WRITER_INTR_FUNCTIONAL_DEFINED__

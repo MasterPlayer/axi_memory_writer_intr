@@ -634,11 +634,11 @@ module mp_axi_memory_writer_intr #(
     );
 
 
-    mp_xpm_fifo_cmd_sync #(
+    mpf_xpm_fifo_cmd_sync #(
         .DATA_WIDTH(CMD_FIFO_WIDTH  ),
         .MEMTYPE   (CMD_FIFO_MEMTYPE),
         .DEPTH     (CMD_FIFO_DEPTH  )
-    ) mp_xpm_fifo_cmd_sync_inst (
+    ) mpf_xpm_fifo_cmd_sync_inst (
         .CLK  (aclk                                                                ),
         .RESET(reset_func                                                          ),
         .DIN  ({current_address[ADDR_WIDTH-1:0], transmitted_bytes[31:0]}          ),
@@ -678,9 +678,9 @@ module mp_axi_memory_writer_intr #(
         end 
     end 
 
-    mp_irq_generator mp_irq_generator_inst #(
+    mp_irq_generator #(
         .DEFAULT_DURATION (DEFAULT_USER_EVENT_DURATION)
-    )(
+    ) mp_irq_generator_inst (
         .CLK           (aclk               ),
         .RESET         (reset_func         ),
         .RETRY         (retry              ),
