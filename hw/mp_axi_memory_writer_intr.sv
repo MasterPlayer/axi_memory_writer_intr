@@ -634,11 +634,11 @@ module mp_axi_memory_writer_intr #(
     );
 
 
-    mpf_xpm_fifo_cmd_sync #(
+    mp_xpm_fifo_cmd_sync #(
         .DATA_WIDTH(CMD_FIFO_WIDTH  ),
         .MEMTYPE   (CMD_FIFO_MEMTYPE),
         .DEPTH     (CMD_FIFO_DEPTH  )
-    ) mpf_xpm_fifo_cmd_sync_inst (
+    ) mp_xpm_fifo_cmd_sync_inst (
         .CLK  (aclk                                                                ),
         .RESET(reset_func                                                          ),
         .DIN  ({current_address[ADDR_WIDTH-1:0], transmitted_bytes[31:0]}          ),

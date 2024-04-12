@@ -569,11 +569,11 @@ module mp_axi_memory_writer_intr_functional #(
 
 
 
-    mpf_xpm_fifo_in_sync_counted #(
+    mp_xpm_fifo_in_sync_counted #(
         .DATA_WIDTH(DATA_WIDTH),
         .MEMTYPE   ("block"   ),
         .DEPTH     (FIFO_DEPTH)
-    ) mpf_xpm_fifo_in_sync_counted_inst (
+    ) mp_xpm_fifo_in_sync_counted_inst (
         .CLK          (CLK                          ),
         .RESET        (fifo_reset                   ),
         .S_AXIS_TDATA (S_AXIS_TDATA                 ),

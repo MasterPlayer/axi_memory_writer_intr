@@ -7,5 +7,5 @@
 # submodules
     submodules/hw/mp_irq_generator.sv
     submodules/hw/mp_irq_retryer.sv
-    submodules/mpf_xpm_fifo_in_sync_counted/hw/mpf_xpm_fifo_in_sync_counted.sv
-    submodules/mpf_xpm_fifo_cmd_sync/hw/mpf_xpm_fifo_cmd_sync.sv
+    submodules/mp_xpm_fifo/hw/mp_xpm_fifo_in_sync_counted.sv
+    submodules/mp_xpm_fifo/hw/mp_xpm_fifo_cmd_sync.sv
